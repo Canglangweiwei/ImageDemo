@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ImageDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">分享</string>
+    <string name="share">分享给童鞋</string>
+    <string name="no_email">需先安装邮件应用并设置账户, 或直接发送邮件至 weiweistar@163.com</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="viewpager_indicator">%1$d/%2$d</string>
+    <string name="zhangsan">张三</string>
+    <string name="content">content</string>
+    <string name="no_data">暂无数据</string>
+    <string name="action_about">关于我</string>
+
+    <string name="fold">收起</string>
+    <string name="expand">全文</string>
+    <string name="shink">收起</string>
+    <string name="nick_name">世锋日上</string>
+
+    <string name="circle_zone">AndroidFire动态</string>
+    <string name="zone_publish_title">发表说说</string>
+    <string name="zone_img_position">circle_img_position</string>
+    <string name="circle_zone_not_read_news">%1$s条新消息</string>
+    <string name="circle_publish_empty">发表内容不能为空！</string>
+
+    <string name="zangao_page">https://baike.baidu.com/item/%E8%97%8F%E7%8D%92/5311?fr=aladdin</string>
+    <string name="zangao_avater">https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=32d1b6b89716fdfad86cc1e88cb4eb69/a08b87d6277f9e2f9236509b1530e924b899f326.jpg</string>
+    <string name="zangao_desc">它气质刚强，尊贵而高傲，力量强大，动作敏捷矫健，耐力较差，幼犬在成年以前记忆力较差。本品种的典型特征是警觉性高，领地意识极强，对主人极为忠诚，在领地内对陌生人有强烈敌意，善于保护主人及其财物。藏獒有忠心护主的天性，不仅是游牧民族的最佳保护犬，同时也被认定是国王、部落首长的最佳护卫犬。藏獒体格高大，性格刚毅，力大勇猛，野性尚存。藏獒身长约120厘米，体毛粗硬，丰厚，外层披毛不太长，底毛在寒冷的气候条件下，则浓密且软如羊毛，耐寒冷，能在冰雪中安然入睡。而在温暖的气候条件下，则非常稀少。护领地，护食物，善攻击，对陌生人有强烈敌意；虽然对主人极为亲热，但在人类生活区对公众构成严重威胁。世界最凶猛的犬种。</string>
+
+</resources>

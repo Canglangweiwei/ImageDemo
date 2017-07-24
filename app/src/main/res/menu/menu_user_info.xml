@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_weibo"
+        android:icon="@drawable/ic_weibo_icon"
+        android:title="@string/action_about"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_blog"
+        android:icon="@drawable/ic_blog_icon"
+        android:title="@string/action_about"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_github"
+        android:icon="@drawable/ic_github_icon"
+        android:title="@string/action_about"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_email"
+        android:icon="@drawable/ic_email"
+        android:title="@string/action_about"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+</menu>
