@@ -32,9 +32,9 @@ public class MultiImageView extends LinearLayout {
     /**
      * 长度 单位为Pixel
      **/
-    private int pxOneMaxWandH;  // 单张图最大允许宽高
-    private int pxMoreWandH = 0;// 多张图的宽高
-    private int pxImagePadding = DisplayUtil.dip2px(3);// 图片间的间距
+    private int pxOneMaxWandH;                          // 单张图最大允许宽高
+    private int pxMoreWandH = 0;                        // 多张图的宽高
+    private int pxImagePadding = DisplayUtil.dip2px(3); // 图片间的间距
 
     private int MAX_PER_ROW_COUNT = 3;// 每行显示最大数
 
@@ -42,10 +42,10 @@ public class MultiImageView extends LinearLayout {
     private LayoutParams morePara, moreParaColumnFirst;
     private LayoutParams rowPara;
 
-    private OnItemClickListener mOnItemClickListener;
+    private OnEveryPhotoClickListener mOnEveryPhotoClickListener;
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        mOnItemClickListener = onItemClickListener;
+    public void setOnItemClickListener(OnEveryPhotoClickListener onEveryPhotoClickListener) {
+        mOnEveryPhotoClickListener = onEveryPhotoClickListener;
     }
 
     public MultiImageView(Context context) {
@@ -135,11 +135,9 @@ public class MultiImageView extends LinearLayout {
             addView(new View(getContext()));
             return;
         }
-
         if (imagesList == null || imagesList.size() == 0) {
             return;
         }
-
         if (imagesList.size() == 1) {
             addView(createImageView(0, false));
         } else {
@@ -149,7 +147,6 @@ public class MultiImageView extends LinearLayout {
             } else {
                 MAX_PER_ROW_COUNT = 3;
             }
-
             /**
              * TODO 如果列表图片数量超过 9 张，就只显示9张
              */
@@ -219,13 +216,16 @@ public class MultiImageView extends LinearLayout {
 
         @Override
         public void onClick(View view) {
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(view, (Integer) view.getTag(R.string.zone_img_position));
+            if (mOnEveryPhotoClickListener != null) {
+                mOnEveryPhotoClickListener.onPhotoClick(view, (Integer) view.getTag(R.string.zone_img_position));
             }
         }
     };
 
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+    /**
+     * 图片点击事件
+     */
+    public interface OnEveryPhotoClickListener {
+        void onPhotoClick(View view, int position);
     }
 }

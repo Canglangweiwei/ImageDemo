@@ -55,7 +55,7 @@ public class CirclePublishActivity extends BaseActivity {
 
     @Override
     protected int initContentView() {
-        return R.layout.act_publish_zone;
+        return R.layout.activity_publish_zone;
     }
 
     @Override

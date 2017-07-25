@@ -24,7 +24,7 @@ import butterknife.Bind;
  * </p>
  * Created by Administrator on 2017/7/18 0018.
  */
-public class ZoneDetailActivity extends BaseActivity
+public class CircleZoneDetailActivity extends BaseActivity
         implements Toolbar.OnMenuItemClickListener {
 
     @Bind(R.id.toolbar)
@@ -44,7 +44,7 @@ public class ZoneDetailActivity extends BaseActivity
      * @param context 上下文环境
      */
     public static void startAction(Context context) {
-        Intent intent = new Intent(context, ZoneDetailActivity.class);
+        Intent intent = new Intent(context, CircleZoneDetailActivity.class);
         context.startActivity(intent);
     }
 

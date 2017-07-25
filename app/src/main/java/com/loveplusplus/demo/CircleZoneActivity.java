@@ -21,7 +21,7 @@ import butterknife.Bind;
 /**
  * 动态
  */
-public class ZoneActivity extends BaseActivity {
+public class CircleZoneActivity extends BaseActivity {
 
     @Bind(R.id.ntb)
     NormalTitleBar ntb;
@@ -69,7 +69,7 @@ public class ZoneActivity extends BaseActivity {
         zoneHeaderView.setUseravaterListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserInfoActivity.startAction(ZoneActivity.this);
+                UserInfoActivity.startAction(CircleZoneActivity.this);
             }
         });
 
@@ -101,7 +101,7 @@ public class ZoneActivity extends BaseActivity {
 
             @Override
             public void onClick(View view) {
-                CirclePublishActivity.startAction(ZoneActivity.this);
+                CirclePublishActivity.startAction(CircleZoneActivity.this);
             }
         });
     }

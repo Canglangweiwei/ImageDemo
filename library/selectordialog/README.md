@@ -20,7 +20,7 @@
                 .setCancleButtonText("Cancle")  //设置最底部“取消”按钮文本
                 .setOnItemListener(new DialogOnItemClickListener() {  //监听item点击事件
                          @Override
-                         public void onItemClick(Button button, int position) {
+                         public void onPhotoClick(Button button, int position) {
 //                                dialog1.dismiss();
                                 Toast.makeText(MainActivity.this, s.get(position), Toast.LENGTH_SHORT).show();
 
@@ -143,7 +143,7 @@ MDSelectionDialog dialog5 = new MDSelectionDialog.Builder(MainActivity.this)
                 .setCanceledOnTouchOutside(true)
                 .setOnItemListener(new DialogOnItemClickListener() {
                     @Override
-                    public void onItemClick(Button button, int position) {
+                    public void onPhotoClick(Button button, int position) {
                         Toast.makeText(MainActivity.this, datas.get(position), Toast.LENGTH_SHORT).show();
 //                        dialog5.dismiss();
                     }

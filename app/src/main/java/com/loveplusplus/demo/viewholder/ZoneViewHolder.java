@@ -14,7 +14,7 @@ import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.ToastUitl;
 import com.jaydenxiao.common.imagePager.BigImagePagerActivity;
 import com.loveplusplus.demo.R;
-import com.loveplusplus.demo.ZoneDetailActivity;
+import com.loveplusplus.demo.CircleZoneDetailActivity;
 import com.loveplusplus.demo.bean.MessageBean;
 import com.loveplusplus.demo.util.DatasUtil;
 import com.loveplusplus.demo.widget.ExpandableTextView;
@@ -61,7 +61,7 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
     private MultiImageView multiImageView;
 
     public static ZoneViewHolder create(Context context) {
-        ZoneViewHolder imageViewHolder = new ZoneViewHolder(LayoutInflater.from(context).inflate(R.layout.item_circle_list, null), context);
+        ZoneViewHolder imageViewHolder = new ZoneViewHolder(LayoutInflater.from(context).inflate(R.layout.item_circle_zone, null), context);
         return imageViewHolder;
     }
 
@@ -124,10 +124,10 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
             }
             multiImageView.setVisibility(View.VISIBLE);
             multiImageView.setList(photos);
-            multiImageView.setOnItemClickListener(new MultiImageView.OnItemClickListener() {
+            multiImageView.setOnItemClickListener(new MultiImageView.OnEveryPhotoClickListener() {
 
                 @Override
-                public void onItemClick(View view, int position) {
+                public void onPhotoClick(View view, int position) {
                     /**
                      * 查看大图
                      */
@@ -144,7 +144,7 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 // 跳到个人朋友圈
-                ZoneDetailActivity.startAction(mContext);
+                CircleZoneDetailActivity.startAction(mContext);
             }
         });
     }
