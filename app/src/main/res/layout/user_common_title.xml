@@ -9,7 +9,7 @@
     android:elevation="4dp"
     android:orientation="vertical"
     android:theme="@style/AppTheme"
-    app:navigationIcon="@drawable/back1"
+    app:navigationIcon="@drawable/icon_back"
     app:popupTheme="@style/AppTheme"
     app:title="@string/app_name"
     app:titleTextColor="@color/white"

@@ -9,7 +9,7 @@
     <!-- 公共的的标题栏 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="@dimen/height_top_bar">
 
         <TextView
             android:id="@+id/tv_back"
@@ -18,9 +18,10 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/back1"
+            android:drawableLeft="@drawable/icon_back"
             android:gravity="center"
-            android:padding="8dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/white"
             android:visibility="visible" />
 
