@@ -16,9 +16,6 @@ import com.loveplusplus.demo.viewholder.ZoneViewHolder;
 @SuppressWarnings("ALL")
 public class CircleAdapter extends BaseReclyerViewAdapter<MessageBean> {
 
-    public static final int ITEM_VIEW_TYPE_DEFAULT = 0;
-    public static final int ITEM_VIEW_TYPE_IMAGE = 1;
-    public static final int ITEM_VIEW_TYPE_URL = 2;
     private Context mContext;
 
     public CircleAdapter(Context context) {

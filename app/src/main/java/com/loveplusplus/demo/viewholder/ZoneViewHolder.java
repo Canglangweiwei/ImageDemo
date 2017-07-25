@@ -92,12 +92,12 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
     /**
      * 设置数据
      */
-    public void setData(MessageBean messageBean, final int positon) {
+    public void setData(MessageBean messageBean, final int pos) {
         if (messageBean == null) {
             return;
         }
         this.circleMessage = messageBean;
-        this.position = positon;
+        this.position = pos;
         // 头像
         ImageLoaderUtils.displayRound(mContext, headIv, DatasUtil.getRandomPhotoUrl());
         nameTv.setText(circleMessage.getName());
@@ -111,7 +111,7 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 // 删除
-                ToastUitl.showShort("删除了");
+                ToastUitl.showShort("删除了第" + position + "条数据");
             }
         });
 

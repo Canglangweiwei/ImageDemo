@@ -87,12 +87,16 @@ public class CirclePublishActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.tv_save:// 发表
-                if (!TextUtils.isEmpty(etContent.getText().toString())) {
-                    ToastUitl.showShort("发表成功");
-                    finish();
-                } else {
+                if (TextUtils.isEmpty(etContent.getText().toString())) {
                     ToastUitl.showToastWithImg(getString(R.string.circle_publish_empty), R.drawable.ic_warm);
+                    return;
                 }
+                if (ninePicturesAdapter.getPhotoCount() == 0) {
+                    ToastUitl.showToastWithImg("请至少选择一张图片", R.drawable.ic_warm);
+                    return;
+                }
+                ToastUitl.showShort("发表成功");
+                finish();
                 break;
         }
     }
@@ -116,6 +120,8 @@ public class CirclePublishActivity extends BaseActivity {
                 .title("图片")
                 // 第一个是否显示相机
                 .needCamera(true)
+                // 是否需要裁剪
+                .needCrop(true)
                 // 最大选择图片数量
                 .maxNum(9 - ninePicturesAdapter.getPhotoCount())
                 .build();
