@@ -1,9 +1,7 @@
 package com.loveplusplus.demo;
 
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
@@ -13,17 +11,17 @@ import com.google.gson.Gson;
 import com.jaydenxiao.common.baseapp.AppCache;
 import com.jaydenxiao.common.commonwidget.NormalTitleBar;
 import com.loveplusplus.demo.adapter.CircleAdapter;
+import com.loveplusplus.demo.base.BaseActivity;
 import com.loveplusplus.demo.bean.BaseBean;
 import com.loveplusplus.demo.widget.ZoneHeaderView;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 
 /**
  * 动态
  */
-public class MainActivity extends AppCompatActivity {
+public class ZoneActivity extends BaseActivity {
 
     @Bind(R.id.ntb)
     NormalTitleBar ntb;
@@ -34,33 +32,46 @@ public class MainActivity extends AppCompatActivity {
 
     private CircleAdapter mAdapter;
 
+    // 初始化头部未读消息
+    private ZoneHeaderView zoneHeaderView;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
-        initView();
-
-        new Get_Data().execute();
+    protected int initContentView() {
+        return R.layout.activity_main;
     }
 
-    /**
-     * 初始化页面布局设置
-     */
-    private void initView() {
+    @Override
+    protected void initUi() {
         initToolbar();
 
         // 初始化头部未读消息
-        ZoneHeaderView zoneHeaderView = new ZoneHeaderView(this);
+        zoneHeaderView = new ZoneHeaderView(this);
         zoneHeaderView.setData(getString(R.string.nick_name), AppCache.getInstance().getIcon(), null);
+        irc.addHeaderView(zoneHeaderView);
+
+        mAdapter = new CircleAdapter(this);
+        mAdapter.openLoadAnimation(new ScaleInAnimation());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        irc.setLayoutManager(linearLayoutManager);
+        irc.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void initDatas() {
+        new Get_Data().execute();
+    }
+
+    @Override
+    protected void initListener() {
+        irc.setRefreshEnabled(false);
+        irc.setLoadMoreEnabled(false);
+
         zoneHeaderView.setUseravaterListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserInfoActivity.startAction(MainActivity.this);
+                UserInfoActivity.startAction(ZoneActivity.this);
             }
         });
-        irc.addHeaderView(zoneHeaderView);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,15 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 irc.smoothScrollToPosition(0);
             }
         });
-
-        mAdapter = new CircleAdapter(this);
-        mAdapter.openLoadAnimation(new ScaleInAnimation());
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        irc.setLayoutManager(linearLayoutManager);
-        irc.setAdapter(mAdapter);
-
-        irc.setRefreshEnabled(false);
-        irc.setLoadMoreEnabled(false);
     }
 
     /**
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                CirclePublishActivity.startAction(MainActivity.this);
+                CirclePublishActivity.startAction(ZoneActivity.this);
             }
         });
     }

@@ -235,11 +235,10 @@ public class ExpandableTextView extends LinearLayout implements View.OnClickList
      * 初始化viwe
      */
     private void findViews() {
-        LayoutInflater inflater = (LayoutInflater) getContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.item_expand_shink, this);
         mTvContent = (TextView) findViewById(R.id.expandable_text);
-        mTvContent.setOnClickListener(this);
+//        mTvContent.setOnClickListener(this);
         mTvExpandCollapse = (TextView) findViewById(R.id.expand_collapse);
         if (showExpandCollapseDrawable) {
             mTvExpandCollapse.setCompoundDrawablesWithIntrinsicBounds(null, null, mCollapsed ? mExpandDrawable : mCollapseDrawable, null);

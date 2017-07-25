@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +17,10 @@ import android.widget.TextView;
 
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.ToastUitl;
+import com.loveplusplus.demo.base.BaseActivity;
 import com.loveplusplus.demo.util.DatasUtil;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * <p>
@@ -32,7 +29,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/7/18 0018.
  */
 @SuppressWarnings("ALL")
-public class UserInfoActivity extends AppCompatActivity
+public class UserInfoActivity extends BaseActivity
         implements Toolbar.OnMenuItemClickListener {
 
     @Bind(R.id.main_bg_iv)
@@ -84,19 +81,12 @@ public class UserInfoActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
-        ButterKnife.bind(this);
-
-        initView();
-        initUserInfo();
+    protected int initContentView() {
+        return R.layout.activity_user_info;
     }
 
-    /**
-     * 初始化页面
-     */
-    private void initView() {
+    @Override
+    protected void initUi() {
         toolbar.setTitle("");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +105,35 @@ public class UserInfoActivity extends AppCompatActivity
         toolbar.inflateMenu(R.menu.menu_user_info);
         toolbar.setOnMenuItemClickListener(this);
         alphaView(mPageTitleTv, 200, 4);
+    }
 
+    @Override
+    protected void initDatas() {
+        String url = DatasUtil.getRandomPhotoUrl();
+
+        ImageLoaderUtils.displayBlurPhoto(this, mUserImgBg, url);
+        ImageLoaderUtils.displayRound(this, mUserAvatarCiv, url);
+
+        String username = getResources().getString(R.string.nick_name);
+        mCollapsingToolbar.setTitle(username);
+        mPageTitleTv.setText(username);
+        mUserNameTv.setText(username);
+
+        mUserAddressTv.setText("青岛");
+        mUserShareTv.setText("10");
+        mUserReplyTv.setText("13");
+        mSignatureTv.setText("简单介绍");
+
+
+        mUserAddressTv.setVisibility(View.VISIBLE);
+        mEditTv.setVisibility(View.GONE);
+        toolbar.getMenu().findItem(R.id.action_github).setVisible(true);
+        toolbar.getMenu().findItem(R.id.action_email).setVisible(true);
+        toolbar.getMenu().findItem(R.id.action_blog).setVisible(true);
+    }
+
+    @Override
+    protected void initListener() {
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -183,30 +201,6 @@ public class UserInfoActivity extends AppCompatActivity
             alphaView(mPageTitleTv, 200, 4);
             isShowTitle = false;
         }
-    }
-
-    private void initUserInfo() {
-        String url = DatasUtil.getRandomPhotoUrl();
-
-        ImageLoaderUtils.displayBlurPhoto(this, mUserImgBg, url);
-        ImageLoaderUtils.displayRound(this, mUserAvatarCiv, url);
-
-        String username = getResources().getString(R.string.nick_name);
-        mCollapsingToolbar.setTitle(username);
-        mPageTitleTv.setText(username);
-        mUserNameTv.setText(username);
-
-        mUserAddressTv.setText("青岛");
-        mUserShareTv.setText("10");
-        mUserReplyTv.setText("13");
-        mSignatureTv.setText("简单介绍");
-
-
-        mUserAddressTv.setVisibility(View.VISIBLE);
-        mEditTv.setVisibility(View.GONE);
-        toolbar.getMenu().findItem(R.id.action_github).setVisible(true);
-        toolbar.getMenu().findItem(R.id.action_email).setVisible(true);
-        toolbar.getMenu().findItem(R.id.action_blog).setVisible(true);
     }
 
     @Override

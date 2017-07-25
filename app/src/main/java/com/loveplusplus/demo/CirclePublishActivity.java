@@ -3,10 +3,7 @@ package com.loveplusplus.demo;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +14,7 @@ import com.jaydenxiao.common.commonutils.ToastUitl;
 import com.jaydenxiao.common.commonwidget.NoScrollGridView;
 import com.jaydenxiao.common.commonwidget.NormalTitleBar;
 import com.loveplusplus.demo.adapter.NinePicturesAdapter;
+import com.loveplusplus.demo.base.BaseActivity;
 import com.yuyh.library.imgsel.ImageLoader;
 import com.yuyh.library.imgsel.ImgSelActivity;
 import com.yuyh.library.imgsel.ImgSelConfig;
@@ -24,7 +22,6 @@ import com.yuyh.library.imgsel.ImgSelConfig;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -34,7 +31,7 @@ import butterknife.OnClick;
  * </p>
  * Created by weiwei on 2017/07/16
  */
-public class CirclePublishActivity extends AppCompatActivity {
+public class CirclePublishActivity extends BaseActivity {
 
     @Bind(R.id.ntb)
     NormalTitleBar ntb;
@@ -57,17 +54,12 @@ public class CirclePublishActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_publish_zone);
-        ButterKnife.bind(this);
-        initView();
+    protected int initContentView() {
+        return R.layout.act_publish_zone;
     }
 
-    /**
-     * 初始化页面
-     */
-    private void initView() {
+    @Override
+    protected void initUi() {
         ntb.setTitleText(getString(R.string.zone_publish_title));
         ninePicturesAdapter = new NinePicturesAdapter(this, 9, new NinePicturesAdapter.OnClickAddListener() {
             @Override
@@ -78,8 +70,18 @@ public class CirclePublishActivity extends AppCompatActivity {
         gridview.setAdapter(ninePicturesAdapter);
     }
 
+    @Override
+    protected void initDatas() {
+
+    }
+
+    @Override
+    protected void initListener() {
+
+    }
+
     @OnClick({R.id.tv_back, R.id.tv_save})
-    public void onClick(View view) {
+    void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_back:
                 finish();

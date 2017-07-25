@@ -2,9 +2,6 @@ package com.loveplusplus.demo;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -16,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
+import com.loveplusplus.demo.base.BaseActivity;
 import com.loveplusplus.demo.util.ShareUtil;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * <p>
@@ -27,7 +24,7 @@ import butterknife.ButterKnife;
  * </p>
  * Created by Administrator on 2017/7/18 0018.
  */
-public class ZoneDetailActivity extends AppCompatActivity
+public class ZoneDetailActivity extends BaseActivity
         implements Toolbar.OnMenuItemClickListener {
 
     @Bind(R.id.toolbar)
@@ -52,18 +49,30 @@ public class ZoneDetailActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zone_detail);
-        ButterKnife.bind(this);
-        initView();
+    protected int initContentView() {
+        return R.layout.activity_zone_detail;
+    }
+
+    @Override
+    protected void initUi() {
+        initToolbar();
         initViewDetail();
+    }
+
+    @Override
+    protected void initDatas() {
+
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 
     /**
      * 初始化页面
      */
-    private void initView() {
+    private void initToolbar() {
         toolbar.setTitle("");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +94,7 @@ public class ZoneDetailActivity extends AppCompatActivity
         userDescTv.setText(R.string.zangao_desc);
 
         WebSettings webSettings = webView.getSettings();
-        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         webView.loadUrl(getResources().getString(R.string.zangao_page));
         webView.setWebViewClient(new WebViewClient() {
 
@@ -112,7 +121,9 @@ public class ZoneDetailActivity extends AppCompatActivity
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_share:
-                ShareUtil.share(this, "分享 " + getResources().getString(R.string.nick_name) + " 的文章藏獒： " + getResources().getString(R.string.zangao_page) + "「来自:zone」");
+                ShareUtil.share(this, "分享 "
+                        + getResources().getString(R.string.nick_name) + " 的文章藏獒： "
+                        + getResources().getString(R.string.zangao_page) + "「来自:zone」");
                 break;
         }
         return true;
@@ -123,9 +134,9 @@ public class ZoneDetailActivity extends AppCompatActivity
      */
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        webView.clearCache(true);
+        webView.clearCache(false);
         webView.removeAllViews();
         webView.destroy();
+        super.onDestroy();
     }
 }

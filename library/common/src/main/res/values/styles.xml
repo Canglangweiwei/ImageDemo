@@ -15,15 +15,16 @@
         <item name="dayNightBackgroundDrawable">@color/day_backgroup_color</item>
     </style>
 
+    <!--冷启动界面-->
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
     <style name="Custom_Theme" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
-    <!--冷启动界面-->
-    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@color/white</item>
+        <item name="colorPrimaryDark">@color/transparent</item>
     </style>
 
     <!--白天主题，此处直接和AppTheme一样-->
@@ -38,6 +39,7 @@
         <item name="dayNightThreeTextColor">@color/day_three_text_color</item>
         <item name="dayNightBackgroundDrawable">@color/day_backgroup_color</item>
     </style>
+
     <!--夜间主题-->
     <style name="NightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/night_backgroup_color</item>

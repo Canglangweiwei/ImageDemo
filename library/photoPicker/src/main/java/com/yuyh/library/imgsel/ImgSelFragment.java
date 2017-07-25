@@ -24,6 +24,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.jaydenxiao.common.commonutils.LogUtils;
 import com.yuyh.library.imgsel.adapter.FolderListAdapter;
 import com.yuyh.library.imgsel.adapter.ImageListAdapter;
 import com.yuyh.library.imgsel.bean.Folder;
@@ -33,7 +34,6 @@ import com.yuyh.library.imgsel.common.Constant;
 import com.yuyh.library.imgsel.common.OnFolderChangeListener;
 import com.yuyh.library.imgsel.common.OnItemClickListener;
 import com.yuyh.library.imgsel.utils.FileUtils;
-import com.yuyh.library.imgsel.utils.LogUtils;
 import com.yuyh.library.imgsel.widget.DividerGridItemDecoration;
 
 import java.io.File;
@@ -276,7 +276,8 @@ public class ImgSelFragment extends Fragment implements View.OnClickListener {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             tempFile = new File(FileUtils.createRootPath(getActivity()) + "/" + System.currentTimeMillis() + ".jpg");
-            LogUtils.e(tempFile.getAbsolutePath());
+//            LogUtils.e(tempFile.getAbsolutePath());
+            LogUtils.logd(tempFile.getAbsolutePath());
             FileUtils.createFile(tempFile);
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
             startActivityForResult(cameraIntent, REQUEST_CAMERA);

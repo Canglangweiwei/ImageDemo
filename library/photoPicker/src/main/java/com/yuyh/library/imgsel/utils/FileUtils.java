@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.nio.channels.FileChannel;
 import java.text.DecimalFormat;
 
+import com.jaydenxiao.common.commonutils.LogUtils;
+
 /**
  * @author yuyh.
  * @date 16/4/9.
@@ -53,12 +55,12 @@ public class FileUtils {
         try {
             File file = new File(dirPath);
             if (file.getParentFile().exists()) {
-                LogUtils.i("----- 创建文件夹" + file.getAbsolutePath());
+                LogUtils.logd("----- 创建文件夹" + file.getAbsolutePath());
                 file.mkdir();
                 return file.getAbsolutePath();
             } else {
                 createDir(file.getParentFile().getAbsolutePath());
-                LogUtils.i("----- 创建文件夹" + file.getAbsolutePath());
+                LogUtils.logd("----- 创建文件夹" + file.getAbsolutePath());
                 file.mkdir();
             }
         } catch (Exception e) {
@@ -76,13 +78,13 @@ public class FileUtils {
     public static String createFile(File file) {
         try {
             if (file.getParentFile().exists()) {
-                LogUtils.i("----- 创建文件" + file.getAbsolutePath());
+                LogUtils.logd("----- 创建文件" + file.getAbsolutePath());
                 file.createNewFile();
                 return file.getAbsolutePath();
             } else {
                 createDir(file.getParentFile().getAbsolutePath());
                 file.createNewFile();
-                LogUtils.i("----- 创建文件" + file.getAbsolutePath());
+                LogUtils.logd("----- 创建文件" + file.getAbsolutePath());
             }
         } catch (Exception e) {
             e.printStackTrace();

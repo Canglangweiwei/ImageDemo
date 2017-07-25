@@ -4,11 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 
-/**
- * Created by aspsine on 16/3/7.
- */
+
+@SuppressWarnings("ALL")
 public class RefreshHeaderLayout extends ViewGroup {
 
     public RefreshHeaderLayout(Context context) {
@@ -28,11 +26,11 @@ public class RefreshHeaderLayout extends ViewGroup {
      */
     public static class LayoutParams extends MarginLayoutParams {
 
-        public LayoutParams(Context c, AttributeSet attrs) {
+        LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
         }
 
-        public LayoutParams(int width, int height) {
+        LayoutParams(int width, int height) {
             super(width, height);
         }
 
@@ -40,7 +38,7 @@ public class RefreshHeaderLayout extends ViewGroup {
             super(source);
         }
 
-        public LayoutParams(ViewGroup.LayoutParams source) {
+        LayoutParams(ViewGroup.LayoutParams source) {
             super(source);
         }
     }
