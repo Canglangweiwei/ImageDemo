@@ -60,7 +60,7 @@ public class CirclePublishActivity extends BaseActivity {
 
     @Override
     protected void initUi() {
-        ntb.setTitleText(getString(R.string.zone_publish_title));
+        ntb.setTitleText(R.string.zone_publish_title);
         ninePicturesAdapter = new NinePicturesAdapter(this, 9, new NinePicturesAdapter.OnClickAddListener() {
             @Override
             public void onClickAdd(int position) {

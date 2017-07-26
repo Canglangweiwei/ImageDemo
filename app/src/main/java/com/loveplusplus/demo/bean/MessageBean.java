@@ -8,9 +8,9 @@ public class MessageBean {
     private String avator;
     private String name;
     private String content;
-    private String time;
+    private String createtime;
     private String[] urls;
-    private boolean isMine;
+    private boolean isSelf;
 
     public int getId() {
         return id;
@@ -44,12 +44,12 @@ public class MessageBean {
         this.content = content;
     }
 
-    public String getTime() {
-        return time;
+    public String getCreatetime() {
+        return createtime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
     public String[] getUrls() {
@@ -60,12 +60,12 @@ public class MessageBean {
         this.urls = urls;
     }
 
-    public boolean isMine() {
-        return isMine;
+    public boolean isSelf() {
+        return isSelf;
     }
 
-    public void setMine(boolean mine) {
-        isMine = mine;
+    public void setSelf(boolean self) {
+        isSelf = self;
     }
 
     public MessageBean() {

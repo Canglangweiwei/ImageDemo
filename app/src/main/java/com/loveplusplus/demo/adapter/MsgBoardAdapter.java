@@ -62,8 +62,8 @@ public class MsgBoardAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = mInflater.inflate(R.layout.item_list, null);
-            holder.avator = (ImageView) convertView.findViewById(R.id.avator);
-            holder.name = (TextView) convertView.findViewById(R.id.name);
+            holder.avator = (ImageView) convertView.findViewById(R.id.headIv);
+            holder.name = (TextView) convertView.findViewById(R.id.nameTv);
             holder.content = (TextView) convertView.findViewById(R.id.content);
             holder.gridView = (NoScrollGridView) convertView.findViewById(R.id.gridView);
             convertView.setTag(holder);

@@ -13,10 +13,9 @@ import android.widget.TextView;
 import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 import com.jaydenxiao.common.commonutils.ToastUitl;
 import com.jaydenxiao.common.imagePager.BigImagePagerActivity;
-import com.loveplusplus.demo.R;
 import com.loveplusplus.demo.CircleZoneDetailActivity;
+import com.loveplusplus.demo.R;
 import com.loveplusplus.demo.bean.MessageBean;
-import com.loveplusplus.demo.util.DatasUtil;
 import com.loveplusplus.demo.widget.ExpandableTextView;
 import com.loveplusplus.demo.widget.MultiImageView;
 
@@ -44,6 +43,11 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
      * 昵称
      */
     private TextView nameTv;
+
+    /**
+     * 时间
+     */
+    private TextView timeTv;
 
     /**
      * 删除
@@ -83,8 +87,9 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
         if (multiImageView != null) {
             this.multiImageView = multiImageView;
         }
-        headIv = (ImageView) itemView.findViewById(R.id.avator);
-        nameTv = (TextView) itemView.findViewById(R.id.name);
+        headIv = (ImageView) itemView.findViewById(R.id.headIv);
+        nameTv = (TextView) itemView.findViewById(R.id.nameTv);
+        timeTv = (TextView) itemView.findViewById(R.id.timeTv);
         contentTv = (ExpandableTextView) itemView.findViewById(R.id.contentTv);
         deleteBtn = (TextView) itemView.findViewById(R.id.deleteBtn);
     }
@@ -99,13 +104,14 @@ public class ZoneViewHolder extends RecyclerView.ViewHolder {
         this.circleMessage = messageBean;
         this.position = pos;
         // 头像
-        ImageLoaderUtils.displayRound(mContext, headIv, DatasUtil.getRandomPhotoUrl());
+        ImageLoaderUtils.displayRound(mContext, headIv, messageBean.getAvator());
         nameTv.setText(circleMessage.getName());
+        timeTv.setText(circleMessage.getCreatetime());
         contentTv.setText(circleMessage.getContent(), position);
         contentTv.setVisibility(TextUtils.isEmpty(circleMessage.getContent()) ? View.GONE : View.VISIBLE);
 
         // 是否显示删除图标
-        deleteBtn.setVisibility(messageBean.isMine() ? View.VISIBLE : View.GONE);
+        deleteBtn.setVisibility(messageBean.isSelf() ? View.VISIBLE : View.GONE);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override

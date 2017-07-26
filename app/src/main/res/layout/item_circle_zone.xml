@@ -10,7 +10,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/avator"
+            android:id="@+id/headIv"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="8dp"
@@ -18,10 +18,10 @@
             android:scaleType="fitCenter" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/nameTv"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_toRightOf="@+id/avator"
+            android:layout_toRightOf="@+id/headIv"
             android:gravity="center"
             android:maxLines="1"
             android:text="小崽子"
@@ -33,7 +33,7 @@
             android:id="@+id/tv_order_situation"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_toRightOf="@+id/name"
+            android:layout_toRightOf="@+id/nameTv"
             android:gravity="center"
             android:maxLines="1"
             android:paddingLeft="8dp"

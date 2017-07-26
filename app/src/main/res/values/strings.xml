@@ -7,6 +7,9 @@
     <string name="share">分享给童鞋</string>
     <string name="no_email">需先安装邮件应用并设置账户, 或直接发送邮件至 weiweistar@163.com</string>
 
+    <string name="press_twice_exit">再次按返回键退出</string>
+    <string name="exit_directly">直接退出</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="viewpager_indicator">%1$d/%2$d</string>
     <string name="zhangsan">张三</string>
