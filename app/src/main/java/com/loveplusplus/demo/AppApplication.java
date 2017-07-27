@@ -9,7 +9,9 @@ import com.loveplusplus.demo.config.Constants;
 
 import java.util.Stack;
 
-
+/**
+ * APPLICATION
+ */
 @SuppressWarnings("ALL")
 public class AppApplication extends BaseApplication {
 
