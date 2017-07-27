@@ -8,22 +8,22 @@ import com.aspsine.irecyclerview.universaladapter.ViewHolderHelper;
 
 import java.util.List;
 
-public abstract class MultiItemAblistViewAdapter<T> extends CommonAblistViewAdapter<T>
-{
 
-    protected MultiItemTypeSupport<T> mMultiItemTypeSupport;
+@SuppressWarnings("ALL")
+public abstract class MultiItemAblistViewAdapter<T> extends CommonAblistViewAdapter<T> {
+
+    private MultiItemTypeSupport<T> mMultiItemTypeSupport;
 
     public MultiItemAblistViewAdapter(Context context, List<T> datas,
-                                      MultiItemTypeSupport<T> multiItemTypeSupport)
-    {
+                                      MultiItemTypeSupport<T> multiItemTypeSupport) {
         super(context, -1, datas);
         mMultiItemTypeSupport = multiItemTypeSupport;
         if (mMultiItemTypeSupport == null)
             throw new IllegalArgumentException("the mMultiItemTypeSupport can not be null.");
     }
+
     public MultiItemAblistViewAdapter(Context context,
-                                      MultiItemTypeSupport<T> multiItemTypeSupport)
-    {
+                                      MultiItemTypeSupport<T> multiItemTypeSupport) {
         super(context, -1);
         mMultiItemTypeSupport = multiItemTypeSupport;
         if (mMultiItemTypeSupport == null)
@@ -31,26 +31,22 @@ public abstract class MultiItemAblistViewAdapter<T> extends CommonAblistViewAdap
     }
 
     @Override
-    public int getViewTypeCount()
-    {
+    public int getViewTypeCount() {
         if (mMultiItemTypeSupport != null)
             return mMultiItemTypeSupport.getViewTypeCount();
         return super.getViewTypeCount();
     }
 
     @Override
-    public int getItemViewType(int position)
-    {
+    public int getItemViewType(int position) {
         if (mMultiItemTypeSupport != null)
             return mMultiItemTypeSupport.getItemViewType(position,
                     mDatas.get(position));
         return super.getItemViewType(position);
-
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         if (mMultiItemTypeSupport == null)
             return super.getView(position, convertView, parent);
 
@@ -61,5 +57,4 @@ public abstract class MultiItemAblistViewAdapter<T> extends CommonAblistViewAdap
         convert(viewHolder, getItem(position));
         return viewHolder.getConvertView();
     }
-
 }

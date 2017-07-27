@@ -4,29 +4,28 @@
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:orientation="vertical"
-    android:paddingBottom="10dp" 
-    android:paddingTop="10dp"
-    >
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:overScrollMode="never"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/action_dialog_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/action_dialog_title"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:visibility="gone"
-                android:gravity="center" />
+                android:gravity="center"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 
@@ -35,8 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
-        android:textSize="14sp"
         android:layout_weight="0"
-        android:background="@drawable/selector_widget_actiondialog_single" />
-
+        android:background="@drawable/selector_widget_actiondialog_single"
+        android:textSize="14sp" />
 </LinearLayout>

@@ -24,7 +24,9 @@ import com.jaydenxiao.common.commonutils.ImageLoaderUtils;
 
 import java.io.File;
 
+@SuppressWarnings("ALL")
 public class ViewHolderHelper extends RecyclerView.ViewHolder {
+
     private SparseArray<View> mViews;
     private int mPosition;
     private View mConvertView;
@@ -36,11 +38,10 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
         mContext = context;
         mConvertView = itemView;
         mPosition = position;
-        mViews = new SparseArray<View>();
+        mViews = new SparseArray<>();
         mConvertView.setTag(this);
 
     }
-
 
     public static ViewHolderHelper get(Context context, View convertView,
                                        ViewGroup parent, int layoutId, int position) {
@@ -56,7 +57,6 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
             return holder;
         }
     }
-
 
     /**
      * 通过viewId获取控件
@@ -104,29 +104,34 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
 
     public ViewHolderHelper setImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
-        ImageLoaderUtils.display(mContext,view,url);
+        ImageLoaderUtils.display(mContext, view, url);
         return this;
     }
+
     public ViewHolderHelper setBigImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
-        ImageLoaderUtils.displayBigPhoto(mContext,view,url);
+        ImageLoaderUtils.displayBigPhoto(mContext, view, url);
         return this;
     }
+
     public ViewHolderHelper setSmallImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
-        ImageLoaderUtils.displaySmallPhoto(mContext,view,url);
+        ImageLoaderUtils.displaySmallPhoto(mContext, view, url);
         return this;
     }
+
     public ViewHolderHelper setImageRoundUrl(int viewId, String url) {
         ImageView view = getView(viewId);
-        ImageLoaderUtils.displayRound(mContext,view,url);
+        ImageLoaderUtils.displayRound(mContext, view, url);
         return this;
     }
+
     public ViewHolderHelper setImageFile(int viewId, File url) {
         ImageView view = getView(viewId);
-        ImageLoaderUtils.display(mContext,view,url);
+        ImageLoaderUtils.display(mContext, view, url);
         return this;
     }
+
     public ViewHolderHelper setImageDrawable(int viewId, Drawable drawable) {
         ImageView view = getView(viewId);
         view.setImageDrawable(drawable);

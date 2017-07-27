@@ -8,8 +8,8 @@ import android.view.View;
 /**
  * 右侧划入动画
  */
+@SuppressWarnings("ALL")
 public class SlideInRightAnimation implements BaseAnimation {
-
 
     @Override
     public Animator[] getAnimators(View view) {

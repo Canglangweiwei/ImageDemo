@@ -43,7 +43,7 @@ public class CircleZoneActivity extends BaseActivity {
 
     @Override
     protected int initContentView() {
-        return R.layout.activity_main;
+        return R.layout.activity_zone;
     }
 
     @Override

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="160dp"
@@ -23,7 +23,7 @@
                 android:layout_height="81dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:max="100"/>
+                android:max="100" />
 
             <ImageView
                 android:layout_width="24dp"
@@ -31,9 +31,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/jc_volume_icon"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/jc_volume_icon" />
         </LinearLayout>
     </RelativeLayout>
-
-
 </LinearLayout>

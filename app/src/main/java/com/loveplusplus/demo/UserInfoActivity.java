@@ -135,6 +135,7 @@ public class UserInfoActivity extends BaseActivity
     @Override
     protected void initListener() {
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 float f = ((float) Math.abs(verticalOffset)) / (float) (mAppBarLayout.getTotalScrollRange());

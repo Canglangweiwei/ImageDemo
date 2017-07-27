@@ -14,9 +14,7 @@ import android.widget.ImageView;
 import com.aspsine.irecyclerview.R;
 import com.aspsine.irecyclerview.RefreshTrigger;
 
-/**
- * Created by jaydenxiao on 16/9/7.
- */
+@SuppressWarnings("ALL")
 public class AndroidVsIosHeaderView extends FrameLayout implements RefreshTrigger {
 
     private ImageView ivBatMan;
@@ -27,7 +25,7 @@ public class AndroidVsIosHeaderView extends FrameLayout implements RefreshTrigge
 
     private int mHeight;
 
-    AnimatorSet btnSexAnimatorSet ;
+    AnimatorSet btnSexAnimatorSet;
 
     public AndroidVsIosHeaderView(Context context) {
         this(context, null);
@@ -44,26 +42,26 @@ public class AndroidVsIosHeaderView extends FrameLayout implements RefreshTrigge
         ivSuperMan = (ImageView) findViewById(R.id.ivSuperMan);
         ivVs = (ImageView) findViewById(R.id.imageView);
 
-        PropertyValuesHolder translationX1 = PropertyValuesHolder.ofFloat("translationX",0.0f,100.0f,0.0f);
-        PropertyValuesHolder rotate = PropertyValuesHolder.ofFloat("rotationY",0.0f,380.0f,0.0f);
-        PropertyValuesHolder translationX2 = PropertyValuesHolder.ofFloat("translationX",0.0f,-100.0f,0.0f);
+        PropertyValuesHolder translationX1 = PropertyValuesHolder.ofFloat("translationX", 0.0f, 100.0f, 0.0f);
+        PropertyValuesHolder rotate = PropertyValuesHolder.ofFloat("rotationY", 0.0f, 380.0f, 0.0f);
+        PropertyValuesHolder translationX2 = PropertyValuesHolder.ofFloat("translationX", 0.0f, -100.0f, 0.0f);
 
-        ObjectAnimator objectAnimator1 = ObjectAnimator.ofPropertyValuesHolder(ivBatMan,  translationX1);
+        ObjectAnimator objectAnimator1 = ObjectAnimator.ofPropertyValuesHolder(ivBatMan, translationX1);
         objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator1.setRepeatMode(ValueAnimator.INFINITE);
 
-        ObjectAnimator objectAnimator2 = ObjectAnimator.ofPropertyValuesHolder(ivSuperMan,translationX2);
+        ObjectAnimator objectAnimator2 = ObjectAnimator.ofPropertyValuesHolder(ivSuperMan, translationX2);
         objectAnimator2.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator2.setRepeatMode(ValueAnimator.INFINITE);
 
-        ObjectAnimator objectAnimator3 = ObjectAnimator.ofPropertyValuesHolder(ivVs,  rotate);
+        ObjectAnimator objectAnimator3 = ObjectAnimator.ofPropertyValuesHolder(ivVs, rotate);
         objectAnimator3.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator3.setRepeatMode(ValueAnimator.INFINITE);
 
-         Animation animation =new RotateAnimation(0f,360f, Animation.RELATIVE_TO_SELF,
-                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        Animation animation1 =new RotateAnimation(0f,-360f, Animation.RELATIVE_TO_SELF,
-                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        Animation animation = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF,
+                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        Animation animation1 = new RotateAnimation(0f, -360f, Animation.RELATIVE_TO_SELF,
+                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setFillAfter(true);
         animation.setDuration(2000);
         animation.setRepeatCount(ValueAnimator.INFINITE);
@@ -76,10 +74,9 @@ public class AndroidVsIosHeaderView extends FrameLayout implements RefreshTrigge
         ivSuperMan.setAnimation(animation1);
 
         btnSexAnimatorSet = new AnimatorSet();
-        btnSexAnimatorSet.playTogether(objectAnimator1, objectAnimator2,objectAnimator3);
+        btnSexAnimatorSet.playTogether(objectAnimator1, objectAnimator2, objectAnimator3);
         btnSexAnimatorSet.setDuration(2000);
         btnSexAnimatorSet.start();
-
     }
 
     @Override
@@ -98,10 +95,9 @@ public class AndroidVsIosHeaderView extends FrameLayout implements RefreshTrigge
 
     @Override
     public void onRefresh() {
-      if(!btnSexAnimatorSet.isStarted()){
-          btnSexAnimatorSet.start();
-      }
-
+        if (!btnSexAnimatorSet.isStarted()) {
+            btnSexAnimatorSet.start();
+        }
     }
 
     @Override

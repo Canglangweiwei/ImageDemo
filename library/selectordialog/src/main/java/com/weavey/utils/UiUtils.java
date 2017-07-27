@@ -1,7 +1,6 @@
 package com.weavey.utils;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 /**
  * create by Weavey

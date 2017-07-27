@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-/**
- * Created by aspsine on 16/3/12.
- */
+@SuppressWarnings("ALL")
 public class WrapperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    protected static final int REFRESH_HEADER = Integer.MIN_VALUE;
-    protected static final int HEADER = Integer.MIN_VALUE + 1;
-    protected static final int FOOTER = Integer.MAX_VALUE - 1;
-    protected static final int LOAD_MORE_FOOTER = Integer.MAX_VALUE;
+
+    private static final int REFRESH_HEADER = Integer.MIN_VALUE;
+    private static final int HEADER = Integer.MIN_VALUE + 1;
+    private static final int FOOTER = Integer.MAX_VALUE - 1;
+    private static final int LOAD_MORE_FOOTER = Integer.MAX_VALUE;
 
     private final RecyclerView.Adapter mAdapter;
 
@@ -129,7 +128,6 @@ public class WrapperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else if (position == mAdapter.getItemCount() + 3) {
             return LOAD_MORE_FOOTER;
         }
-
         throw new IllegalArgumentException("Wrong type! Position = " + position);
     }
 
@@ -156,46 +154,27 @@ public class WrapperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     static class RefreshHeaderContainerViewHolder extends RecyclerView.ViewHolder {
-
-        public RefreshHeaderContainerViewHolder(View itemView) {
+        RefreshHeaderContainerViewHolder(View itemView) {
             super(itemView);
         }
     }
 
     static class HeaderContainerViewHolder extends RecyclerView.ViewHolder {
 
-        public HeaderContainerViewHolder(View itemView) {
+        HeaderContainerViewHolder(View itemView) {
             super(itemView);
         }
     }
 
     static class FooterContainerViewHolder extends RecyclerView.ViewHolder {
-
-        public FooterContainerViewHolder(View itemView) {
+        FooterContainerViewHolder(View itemView) {
             super(itemView);
         }
     }
 
     static class LoadMoreFooterContainerViewHolder extends RecyclerView.ViewHolder {
-
-        public LoadMoreFooterContainerViewHolder(View itemView) {
+        LoadMoreFooterContainerViewHolder(View itemView) {
             super(itemView);
         }
     }
-
-//    public void setEmptyView(View emptyView)
-//    {
-//        this.emptyView = emptyView;
-//        checkIfEmpty();
-//    }
-//    /**
-//     * 检查数据是否为空
-//     */
-//    void checkIfEmpty()
-//    {
-//        if (emptyView != null)
-//        {
-//            emptyView.setVisibility(mAdapter.getItemCount() > 4 ? View.GONE : View.VISIBLE);
-//        }
-//    }
 }

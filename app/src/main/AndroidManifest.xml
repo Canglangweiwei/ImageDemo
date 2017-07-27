@@ -31,7 +31,7 @@
         <activity
             android:name=".UserInfoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Custom_Theme"/>
+            android:theme="@style/Custom_Theme" />
 
         <activity
             android:name=".CircleZoneDetailActivity"

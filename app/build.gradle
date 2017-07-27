@@ -21,6 +21,6 @@ android {
 dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
 
-    compile project(':library:photoPicker')// 图片选择
-    compile project(':library:irecyclerview')// 万能适配器和recyclerview
+    compile project(':library:photoPicker')     // 图片选择
+    compile project(':library:irecyclerview')   // 万能适配器和recyclerview
 }

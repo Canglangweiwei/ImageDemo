@@ -12,10 +12,9 @@ import android.widget.TextView;
 import com.aspsine.irecyclerview.R;
 import com.aspsine.irecyclerview.RefreshTrigger;
 
-/**
- * Created by aspsine on 16/3/14.
- */
+
 public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshTrigger {
+
     private ImageView ivArrow;
 
     private ImageView ivSuccess;
@@ -76,7 +75,6 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
                     ivArrow.startAnimation(rotateDown);
                     rotated = false;
                 }
-
                 tvRefresh.setText("SWIPE TO REFRESH");
             } else {
                 tvRefresh.setText("RELEASE TO REFRESH");

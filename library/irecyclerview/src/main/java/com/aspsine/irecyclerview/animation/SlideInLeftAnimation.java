@@ -8,13 +8,13 @@ import android.view.View;
 /**
  * 左侧划入动画
  */
+@SuppressWarnings("ALL")
 public class SlideInLeftAnimation implements BaseAnimation {
 
-
-  @Override
-  public Animator[] getAnimators(View view) {
-    return new Animator[] {
-        ObjectAnimator.ofFloat(view, "translationX", -view.getRootView().getWidth(), 0)
-    };
-  }
+    @Override
+    public Animator[] getAnimators(View view) {
+        return new Animator[]{
+                ObjectAnimator.ofFloat(view, "translationX", -view.getRootView().getWidth(), 0)
+        };
+    }
 }

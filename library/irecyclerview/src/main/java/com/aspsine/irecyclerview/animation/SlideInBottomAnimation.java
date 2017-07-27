@@ -8,9 +8,8 @@ import android.view.View;
 /**
  * 底部划入动画
  */
+@SuppressWarnings("ALL")
 public class SlideInBottomAnimation implements BaseAnimation {
-
-
 
     @Override
     public Animator[] getAnimators(View view) {

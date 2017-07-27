@@ -1,13 +1,11 @@
 package com.aspsine.irecyclerview.universaladapter.recyclerview.support;
 
-/**
- * Created by zhy on 16/4/9.
- */
-public interface SectionSupport<T>
-{
-    public int sectionHeaderLayoutId();
+@SuppressWarnings("ALL")
+public interface SectionSupport<T> {
 
-    public int sectionTitleTextViewId();
+    int sectionHeaderLayoutId();
 
-    public String getTitle(T t);
+    int sectionTitleTextViewId();
+
+    String getTitle(T t);
 }

@@ -134,7 +134,7 @@ public class CircleZoneDetailActivity extends BaseActivity
      */
     @Override
     protected void onDestroy() {
-        webView.clearCache(false);
+        webView.clearCache(true);
         webView.removeAllViews();
         webView.destroy();
         super.onDestroy();

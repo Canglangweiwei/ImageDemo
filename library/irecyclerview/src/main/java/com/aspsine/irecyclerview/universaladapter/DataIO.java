@@ -2,6 +2,7 @@ package com.aspsine.irecyclerview.universaladapter;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public interface DataIO<T> {
 
     void add(T elem);

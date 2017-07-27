@@ -9,9 +9,7 @@ import android.widget.FrameLayout;
 import com.aspsine.irecyclerview.R;
 
 
-/**
- * Created by aspsine on 16/3/14.
- */
+@SuppressWarnings("ALL")
 public class LoadMoreFooterView extends FrameLayout {
 
     private Status mStatus;
@@ -48,7 +46,6 @@ public class LoadMoreFooterView extends FrameLayout {
                 }
             }
         });
-
         setStatus(Status.GONE);
     }
 
@@ -104,5 +101,4 @@ public class LoadMoreFooterView extends FrameLayout {
     public interface OnRetryListener {
         void onRetry(LoadMoreFooterView view);
     }
-
 }
