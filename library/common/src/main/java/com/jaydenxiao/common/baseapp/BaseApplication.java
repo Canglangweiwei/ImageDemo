@@ -8,6 +8,7 @@ import android.support.multidex.MultiDex;
 /**
  * APPLICATION
  */
+@SuppressWarnings("ALL")
 public class BaseApplication extends Application {
 
     private static BaseApplication baseApplication;
@@ -24,11 +25,6 @@ public class BaseApplication extends Application {
 
     public static Resources getAppResources() {
         return baseApplication.getResources();
-    }
-
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
     }
 
     /**
