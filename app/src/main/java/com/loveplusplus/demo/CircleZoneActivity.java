@@ -1,6 +1,7 @@
 package com.loveplusplus.demo;
 
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +9,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.aspsine.irecyclerview.IRecyclerView;
+import com.aspsine.irecyclerview.OnLoadMoreListener;
+import com.aspsine.irecyclerview.OnRefreshListener;
 import com.aspsine.irecyclerview.animation.ScaleInAnimation;
+import com.aspsine.irecyclerview.widget.LoadMoreFooterView;
 import com.google.gson.Gson;
 import com.jaydenxiao.common.baseapp.AppCache;
 import com.jaydenxiao.common.commonwidget.NormalTitleBar;
@@ -24,7 +28,9 @@ import butterknife.Bind;
 /**
  * 动态
  */
-public class CircleZoneActivity extends BaseActivity {
+public class CircleZoneActivity extends BaseActivity
+        implements OnRefreshListener,
+        OnLoadMoreListener {
 
     @Bind(R.id.drawer_layout)
     RelativeLayout drawerLayout;
@@ -69,8 +75,8 @@ public class CircleZoneActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        irc.setRefreshEnabled(false);
-        irc.setLoadMoreEnabled(false);
+        irc.setOnRefreshListener(this);
+        irc.setOnLoadMoreListener(this);
 
         zoneHeaderView.setUseravaterListener(new View.OnClickListener() {
             @Override
@@ -110,6 +116,35 @@ public class CircleZoneActivity extends BaseActivity {
                 CirclePublishActivity.startAction(CircleZoneActivity.this);
             }
         });
+    }
+
+    @Override
+    public void onLoadMore(View loadMoreView) {
+        // 发起请求
+        irc.setLoadMoreStatus(LoadMoreFooterView.Status.LOADING);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // 加载成功
+//                irc.setLoadMoreStatus(LoadMoreFooterView.Status.GONE);
+                // 没有多余数据了
+                irc.setLoadMoreStatus(LoadMoreFooterView.Status.THE_END);
+            }
+        }, 1200);
+    }
+
+    @Override
+    public void onRefresh() {
+        // 发起请求
+        irc.setRefreshing(true);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                irc.setRefreshing(false);
+            }
+        }, 1200);
     }
 
     private class Get_Data extends AsyncTask<Void, Void, BaseBean> {
