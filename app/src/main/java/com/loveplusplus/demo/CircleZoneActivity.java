@@ -119,30 +119,36 @@ public class CircleZoneActivity extends BaseActivity
     }
 
     @Override
-    public void onLoadMore(View loadMoreView) {
-        // 发起请求
-        irc.setLoadMoreStatus(LoadMoreFooterView.Status.LOADING);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // 加载成功
-//                irc.setLoadMoreStatus(LoadMoreFooterView.Status.GONE);
-                // 没有多余数据了
-                irc.setLoadMoreStatus(LoadMoreFooterView.Status.THE_END);
-            }
-        }, 1200);
-    }
-
-    @Override
     public void onRefresh() {
+        mAdapter.getPageBean().setRefresh(true);
         // 发起请求
         irc.setRefreshing(true);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                irc.setRefreshing(false);
+                if (mAdapter.getPageBean().isRefresh()) {
+                    irc.setRefreshing(false);
+                }
+            }
+        }, 1200);
+    }
+
+    @Override
+    public void onLoadMore(View loadMoreView) {
+        mAdapter.getPageBean().setRefresh(false);
+        // 发起请求
+        irc.setLoadMoreStatus(LoadMoreFooterView.Status.LOADING);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!mAdapter.getPageBean().isRefresh()) {
+                    // 加载成功
+//                irc.setLoadMoreStatus(LoadMoreFooterView.Status.GONE);
+                    // 没有多余数据了
+                    irc.setLoadMoreStatus(LoadMoreFooterView.Status.THE_END);
+                }
             }
         }, 1200);
     }
