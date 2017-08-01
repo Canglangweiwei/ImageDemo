@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.loveplusplus.demo.AppApplication;
 import com.loveplusplus.demo.R;
@@ -100,18 +99,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void finish() {
         this.overridePendingTransition(R.anim.enter_lefttoright, R.anim.exit_lefttoright);
         super.finish();
-    }
-
-    protected void showToast(int resId) {
-        Toast.makeText(BaseActivity.this, resId, Toast.LENGTH_SHORT).show();
-    }
-
-    protected void showToast(String text) {
-        Toast.makeText(BaseActivity.this, text, Toast.LENGTH_SHORT).show();
-    }
-
-    protected void showToastLong(String text) {
-        Toast.makeText(BaseActivity.this, text, Toast.LENGTH_LONG).show();
     }
 
     /**
