@@ -34,7 +34,7 @@ public class UserInfoActivity extends BaseActivity
 
     @Bind(R.id.main_bg_iv)
     ImageView mUserImgBg;
-    @Bind(R.id.toolBar)
+    @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.user_name_tv)
     TextView mUserNameTv;
@@ -122,7 +122,7 @@ public class UserInfoActivity extends BaseActivity
         mUserAddressTv.setText("青岛");
         mUserShareTv.setText("10");
         mUserReplyTv.setText("13");
-        mSignatureTv.setText("简单介绍");
+        mSignatureTv.setText("一个热爱分享的 Android 小伙伴...");
 
 
         mUserAddressTv.setVisibility(View.VISIBLE);
