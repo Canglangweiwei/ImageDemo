@@ -25,7 +25,6 @@ public class MDAlertDialog implements View.OnClickListener {
     private Builder mBuilder;
 
     public MDAlertDialog(Builder builder) {
-
         mBuilder = builder;
         mDialog = new Dialog(mContext, R.style.MyDialogStyle);
         mDialogView = View.inflate(mContext, R.layout.widget_md_dialog, null);
@@ -69,7 +68,6 @@ public class MDAlertDialog implements View.OnClickListener {
 
         mLeftBtn.setOnClickListener(this);
         mRightBtn.setOnClickListener(this);
-
     }
 
     public void show() {
@@ -278,7 +276,6 @@ public class MDAlertDialog implements View.OnClickListener {
         }
 
         public MDAlertDialog build() {
-
             return new MDAlertDialog(this);
         }
     }

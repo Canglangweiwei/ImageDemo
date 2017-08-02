@@ -29,7 +29,6 @@ public class MDEditDialog implements View.OnClickListener, DialogInterface.OnDis
     private Builder mBuilder;
 
     public MDEditDialog(Builder builder) {
-
         mBuilder = builder;
         mDialog = new Dialog(mContext, R.style.MyDialogStyle);
         mDialogView = View.inflate(mContext, R.layout.widget_edit_dialog, null);

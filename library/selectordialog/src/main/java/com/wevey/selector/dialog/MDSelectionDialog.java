@@ -29,7 +29,6 @@ public class MDSelectionDialog {
     private int selectPosition;//最后一次选择的位置
 
     public MDSelectionDialog(Builder builder) {
-
         this.mBuilder = builder;
         mDialog = new Dialog(mContext, R.style.MyDialogStyle);
         dialogView = View.inflate(mContext, R.layout.widget_md_mid_dialog, null);
