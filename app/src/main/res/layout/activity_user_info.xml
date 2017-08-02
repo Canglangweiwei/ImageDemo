@@ -62,9 +62,9 @@
                         android:ellipsize="end"
                         android:gravity="left"
                         android:maxLines="1"
+                        android:text="G军仔"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
-                        android:text="G军仔" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/user_real_name_tv"
@@ -72,10 +72,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/user_name_tv"
                         android:layout_toRightOf="@id/user_name_tv"
+                        android:text="(黄高军)"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
-                        android:visibility="gone"
-                        android:text="(黄高军)" />
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/user_address_tv"
@@ -83,9 +83,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/user_name_tv"
                         android:drawableLeft="@drawable/ic_address"
-                        android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:paddingTop="8dp"
+                        android:paddingTop="10dp"
                         android:text="广州"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
@@ -96,14 +95,15 @@
                     android:id="@+id/user_avatar_civ"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="@string/app_name" />
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/toux2" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/signature_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="170dp"
+                android:layout_marginTop="180dp"
                 android:alpha="0.75"
                 android:ellipsize="end"
                 android:maxLines="2"
@@ -116,7 +116,7 @@
                 android:id="@+id/user_focus_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="240dp"
                 android:paddingLeft="20dp">
 
                 <LinearLayout
