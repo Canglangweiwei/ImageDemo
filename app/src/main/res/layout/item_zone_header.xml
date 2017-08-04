@@ -28,7 +28,7 @@
             android:layout_marginRight="10dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:src="@drawable/toux2"
+            android:src="@drawable/icon_default_head"
             android:visibility="visible" />
 
         <TextView
