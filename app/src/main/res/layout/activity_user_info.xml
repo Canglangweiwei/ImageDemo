@@ -97,7 +97,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/toux2" />
+                    android:src="@drawable/icon_default_head" />
             </LinearLayout>
 
             <TextView

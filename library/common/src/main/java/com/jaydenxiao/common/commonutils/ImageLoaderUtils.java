@@ -146,7 +146,7 @@ public class ImageLoaderUtils {
         }
         Glide.with(context).load(url)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.drawable.toux2)
+                .error(R.drawable.icon_default_head)
                 .centerCrop()
                 .transform(new GlideRoundTransformUtil(context))
                 .into(imageView);
