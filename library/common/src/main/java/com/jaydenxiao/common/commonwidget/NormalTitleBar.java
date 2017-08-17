@@ -9,7 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jaydenxiao.common.R;
-import com.jaydenxiao.common.commonutils.DisplayUtil;
 
 
 @SuppressWarnings("ALL")
@@ -34,12 +33,6 @@ public class NormalTitleBar extends RelativeLayout {
         tvRight = (TextView) findViewById(R.id.tv_right);
         ivRight = (ImageView) findViewById(R.id.image_right);
         rlCommonTitle = (RelativeLayout) findViewById(R.id.common_title);
-        // setHeaderHeight();
-    }
-
-    public void setHeaderHeight() {
-        rlCommonTitle.setPadding(0, DisplayUtil.getStatusBarHeight(context), 0, 0);
-        rlCommonTitle.requestLayout();
     }
 
     /**
