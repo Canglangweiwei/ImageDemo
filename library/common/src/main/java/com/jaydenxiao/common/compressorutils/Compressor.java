@@ -45,7 +45,9 @@ import rx.functions.Func0;
 //        }
 //        });
 
+@SuppressWarnings("ALL")
 public class Compressor {
+
     private static volatile Compressor INSTANCE;
     private Context context;
     //max width and height values of the compressed image is taken as 612x816

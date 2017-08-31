@@ -11,14 +11,15 @@ import java.lang.reflect.Type;
 
 /**
  * JSON解析二次封装
- *
  */
+@SuppressWarnings("ALL")
 public class JsonUtils {
 
     // 采取单例模式
     private static Gson gson = new Gson();
 
     private JsonUtils() {
+        super();
     }
 
     /**
@@ -115,6 +116,7 @@ public class JsonUtils {
         }
         return null;
     }
+
     public static int getIntValue(String json, String key) {
         try {
             JSONObject object = new JSONObject(json);
@@ -124,5 +126,4 @@ public class JsonUtils {
         }
         return 0;
     }
-
 }

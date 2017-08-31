@@ -59,7 +59,6 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     //初始化view
     protected abstract void initView();
 
-
     /**
      * 通过Class跳转界面
      **/
@@ -99,7 +98,6 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         startActivity(intent);
     }
 
-
     /**
      * 开启加载进度条
      */
@@ -122,7 +120,6 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     public void stopProgressDialog() {
         LoadingDialog.cancelDialogForLoading();
     }
-
 
     /**
      * 短暂显示Toast提示(来自String)
@@ -151,7 +148,6 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     public void showLongToast(String text) {
         ToastUitl.showLong(text);
     }
-
 
     public void showToastWithImg(String text, int res) {
         ToastUitl.showToastWithImg(text, res);

@@ -9,8 +9,9 @@ import android.view.inputmethod.InputMethodManager;
  * Created by xsf
  * on 2016.05.13:59
  */
-
+@SuppressWarnings("ALL")
 public class KeyBordUtil {
+
     /**
      * 显示和隐藏软键盘 View ： EditText、TextView isShow : true = show , false = hide
      *
@@ -56,5 +57,4 @@ public class KeyBordUtil {
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
 }

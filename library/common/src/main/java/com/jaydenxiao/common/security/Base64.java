@@ -70,7 +70,6 @@ public class Base64 {
         switch (modulus) {
             case 0: /* nothing left to do */
                 break;
-
             case 1:
                 d1 = data[data.length - 1] & 0xff;
                 b1 = (d1 >>> 2) & 0x3f;
@@ -80,9 +79,7 @@ public class Base64 {
                 bytes[bytes.length - 3] = encodingTable[b2];
                 bytes[bytes.length - 2] = (byte) '=';
                 bytes[bytes.length - 1] = (byte) '=';
-
                 break;
-
             case 2:
                 d1 = data[data.length - 2] & 0xff;
                 d2 = data[data.length - 1] & 0xff;

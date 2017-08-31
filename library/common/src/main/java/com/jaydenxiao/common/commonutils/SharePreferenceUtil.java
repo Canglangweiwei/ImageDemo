@@ -6,12 +6,11 @@ import android.preference.PreferenceManager;
 
 import com.jaydenxiao.common.baseapp.BaseApplication;
 
-
 /**
  * 对SharedPreference文件中的各种类型的数据进行存取操作
- *
  */
-public class SPUtils {
+@SuppressWarnings("ALL")
+public class SharePreferenceUtil {
 
     private static SharedPreferences sp;
 
@@ -49,8 +48,7 @@ public class SPUtils {
         return sp.getLong(key, 0l);
     }
 
-    public static void setSharedFloatData(Context context, String key,
-                                          float value) {
+    public static void setSharedFloatData(Context context, String key, float value) {
         if (sp == null) {
             init(context);
         }
@@ -92,5 +90,4 @@ public class SPUtils {
         }
         return sp.getString(key, "");
     }
-
 }

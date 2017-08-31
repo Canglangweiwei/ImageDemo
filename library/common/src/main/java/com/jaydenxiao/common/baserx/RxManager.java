@@ -14,6 +14,7 @@ import rx.subscriptions.CompositeSubscription;
  * Created by xsf
  * on 2016.08.14:50
  */
+@SuppressWarnings("ALL")
 public class RxManager {
 
     private RxBus mRxBus = RxBus.getInstance();

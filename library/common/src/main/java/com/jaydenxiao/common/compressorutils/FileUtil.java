@@ -17,13 +17,15 @@ import java.io.OutputStream;
 /**
  * 文件处理util
  */
+@SuppressWarnings("ALL")
 public class FileUtil {
+
     static final String FILES_PATH = "Compressor";
     private static final int EOF = -1;
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
     private FileUtil() {
-
+        super();
     }
 
     public static File from(Context context, Uri uri) throws IOException {
@@ -43,7 +45,6 @@ public class FileUtil {
             copy(inputStream, out);
             inputStream.close();
         }
-
         if (out != null) {
             out.close();
         }
@@ -52,6 +53,7 @@ public class FileUtil {
 
     /**
      * 获取文件名
+     *
      * @param fileName
      * @return
      */
@@ -63,12 +65,12 @@ public class FileUtil {
             name = fileName.substring(0, i);
             extension = fileName.substring(i);
         }
-
         return new String[]{name, extension};
     }
 
     /**
      * 根据uri获取文件路径
+     *
      * @param context
      * @param uri
      * @return
@@ -101,6 +103,7 @@ public class FileUtil {
 
     /**
      * 根据uri获取真文件路径
+     *
      * @param context
      * @param contentUri
      * @return
@@ -159,6 +162,7 @@ public class FileUtil {
 
     /**
      * 文件是否存在
+     *
      * @param path
      * @return
      */
@@ -169,7 +173,6 @@ public class FileUtil {
                 return false;
             }
         } catch (Exception e) {
-
             return false;
         }
         return true;

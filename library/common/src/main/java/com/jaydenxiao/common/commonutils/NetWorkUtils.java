@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
  * Created by xsf
  * on 2016.04.10:34
  */
+@SuppressWarnings("ALL")
 public class NetWorkUtils {
 
     /**
@@ -28,6 +29,7 @@ public class NetWorkUtils {
             return true;
         return false;
     }
+
     /**
      * 检测wifi是否连接
      */

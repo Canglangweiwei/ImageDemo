@@ -9,6 +9,7 @@ import rx.schedulers.Schedulers;
  * Created by xsf
  * on 2016.08.14:50
  */
+@SuppressWarnings("ALL")
 public class RxSchedulers {
     public static <T> Observable.Transformer<T, T> io_main() {
         return new Observable.Transformer<T, T>() {

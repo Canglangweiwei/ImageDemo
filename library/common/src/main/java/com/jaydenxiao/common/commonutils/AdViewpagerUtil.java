@@ -75,6 +75,7 @@ import com.jaydenxiao.common.R;
 //         </LinearLayout>
 //         </RelativeLayout>
 
+@SuppressWarnings("ALL")
 public class AdViewpagerUtil {
 
     private Context context;
@@ -135,7 +136,7 @@ public class AdViewpagerUtil {
     public AdViewpagerUtil(Context context, ViewPager viewPager, LinearLayout dotlayout, String[] urls) {
         this.context = context;
         this.viewPager = viewPager;
-        this.dotlayout=dotlayout;
+        this.dotlayout = dotlayout;
         this.urls = urls;
         initVps();
     }
@@ -221,7 +222,6 @@ public class AdViewpagerUtil {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 int action = event.getAction();
                 switch (action) {
                     case MotionEvent.ACTION_DOWN:
@@ -243,7 +243,6 @@ public class AdViewpagerUtil {
 
             @Override
             public void onPageScrollStateChanged(int arg0) {
-                // TODO Auto-generated method stub
                 if (isRight) {
                     if (arg0 != 1) {
                         if (lastPosition == 0) {
@@ -261,7 +260,6 @@ public class AdViewpagerUtil {
 
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2) {
-                // TODO Auto-generated method stub
                 if (!isRight) {
                     if (arg1 < 0.01) {
                         if (arg0 == 0) {
@@ -278,7 +276,6 @@ public class AdViewpagerUtil {
 
             @Override
             public void onPageSelected(int arg0) {
-                // TODO Auto-generated method stub
                 autoIndex = arg0;
                 if (lastPosition < arg0 && lastPosition != 0) {
                     isRight = true;
@@ -312,7 +309,6 @@ public class AdViewpagerUtil {
                     onAdPageChangeListener.onPageSelected(arg0);
                 }
             }
-
         });
         viewPager.setCurrentItem(1);// 初始化时设置显示第一页（ViewPager中索引为1）
     }
@@ -345,8 +341,10 @@ public class AdViewpagerUtil {
         }
     }
 
-    Handler handler = new Handler();
-    Runnable runnable = new Runnable() {
+    private Handler handler = new Handler();
+
+    private Runnable runnable = new Runnable() {
+
         @Override
         public void run() {
             // 要做的事情
@@ -366,7 +364,6 @@ public class AdViewpagerUtil {
             handler.postDelayed(runnable, delayTime);// 每两秒执行一次runnable.
             isLoop = true;
         }
-
     }
 
     /**
@@ -395,7 +392,6 @@ public class AdViewpagerUtil {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
-
 
     /**
      * 广告适配器
@@ -434,5 +430,4 @@ public class AdViewpagerUtil {
             return imageViews[position];
         }
     }
-
 }

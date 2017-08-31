@@ -8,6 +8,7 @@ import android.view.View;
  * on 2016.07.10:58
  */
 public abstract class OnDoubleClickListener implements View.OnClickListener {
+
     private int count = 0;
     private long firClick = 0;
     private long secClick = 0;
@@ -17,7 +18,6 @@ public abstract class OnDoubleClickListener implements View.OnClickListener {
         count++;
         if (count == 1) {
             firClick = System.currentTimeMillis();
-
         } else if (count == 2) {
             secClick = System.currentTimeMillis();
             if (secClick - firClick < 1000) {

@@ -14,9 +14,10 @@ import android.os.Build;
  * Created by xsf
  * on 2016.06.10:21
  */
+@SuppressWarnings("ALL")
 public class DialogPermissionUtil {
 
-    public static void PermissionDialog(final Activity activity, String content){
+    public static void PermissionDialog(final Activity activity, String content) {
         Dialog deleteDialog = new AlertDialog.Builder(activity)
                 .setTitle("提示")
                 .setMessage(content)
@@ -31,6 +32,7 @@ public class DialogPermissionUtil {
 
     /**
      * 启动app设置授权界面
+     *
      * @param context
      */
     public static void startSettingIntent(Context context) {
@@ -38,10 +40,10 @@ public class DialogPermissionUtil {
         localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= 9) {
             localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-            localIntent.setData(Uri.fromParts("package", context.getPackageName(),null));
+            localIntent.setData(Uri.fromParts("package", context.getPackageName(), null));
         } else if (Build.VERSION.SDK_INT <= 8) {
             localIntent.setAction(Intent.ACTION_VIEW);
-            localIntent.setClassName("com.android.settings","com.android.settings.InstalledAppDetails");
+            localIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
             localIntent.putExtra("com.android.settings.ApplicationPkgName", context.getPackageName());
         }
         context.startActivity(localIntent);

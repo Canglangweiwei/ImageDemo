@@ -38,10 +38,10 @@ protected void _onError(String message) {
         });
  */
 
-
+@SuppressWarnings("ALL")
 public class RxCache {
+
     /**
-     *
      * @param context
      * @param cacheKey
      * @param expireTime

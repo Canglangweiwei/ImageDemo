@@ -11,24 +11,26 @@ import java.util.Enumeration;
  * Created by xsf
  * on 2016.06.16:27
  */
+@SuppressWarnings("ALL")
 public class IpUtils {
+
     /**
      * 获取ip地址方法
+     *
      * @return
      */
     public static String GetHostIp() {
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface
-                    .getNetworkInterfaces(); en.hasMoreElements();) {
+                    .getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
                 for (Enumeration<InetAddress> ipAddr = intf.getInetAddresses(); ipAddr
-                        .hasMoreElements();) {
+                        .hasMoreElements(); ) {
                     InetAddress inetAddress = ipAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
                         //if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet6Address) {
                         return inetAddress.getHostAddress().toString();
                     }
-
                 }
             }
         } catch (SocketException ex) {

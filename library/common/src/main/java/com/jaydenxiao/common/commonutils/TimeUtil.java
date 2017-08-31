@@ -3,7 +3,6 @@
  */
 package com.jaydenxiao.common.commonutils;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -17,10 +16,10 @@ import java.util.Locale;
 
 /**
  * 描述：日期处理类.
- *
  */
 @SuppressWarnings("all")
 public class TimeUtil {
+
     /**
      * one day millisecond count
      */
@@ -51,14 +50,17 @@ public class TimeUtil {
      * 时间日期格式化到年月日.中文显示
      */
     public static String dateFormatYMDofChinese = "yyyy年MM月dd日";
+
     /**
      * 时间日期格式化到月日.中文显示
      */
     public static String dateFormatMDofChinese = "MM月dd日";
+
     /**
      * 时间日期格式化到月.中文显示
      */
     public static String dateFormatMofChinese = "MM月";
+
     /**
      * 时间日期格式化到年月.
      */
@@ -101,15 +103,15 @@ public class TimeUtil {
     public static String dateFormatYMD2 = "yyyy/MM/dd";
 
     private final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>() {
-        @SuppressLint("SimpleDateFormat")
+
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         }
     };
 
-    @SuppressLint("SimpleDateFormat")
     private final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
+
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM-dd");
@@ -118,6 +120,7 @@ public class TimeUtil {
 
     /**
      * 时间戳转特定格式时间
+     *
      * @param dataFormat
      * @param timeStamp
      * @return
@@ -313,11 +316,9 @@ public class TimeUtil {
             e.printStackTrace();
         }
         return curDateTime;
-
     }
 
-
-    //获取当前系统当天日期
+    // 获取当前系统当天日期
     public static String getCurrentDay() {
         String curDateTime = null;
         try {
@@ -331,7 +332,7 @@ public class TimeUtil {
         return curDateTime;
     }
 
-    //获取当前系统当天日期
+    // 获取当前系统当天日期
     public static String getCurrentDay2() {
         String curDateTime = null;
         try {
@@ -358,6 +359,7 @@ public class TimeUtil {
         }
         return curDateTime;
     }
+
     //获取当前系统前后第几小时
     public static String getNextHour(int i) {
         String curDateTime = null;
@@ -391,7 +393,6 @@ public class TimeUtil {
             e.printStackTrace();
         }
         return mDateTime;
-
     }
 
     /**
@@ -555,7 +556,6 @@ public class TimeUtil {
         return strDate;
     }
 
-
     /**
      * 描述：获取表示当前日期的0点时间毫秒数.
      *
@@ -648,17 +648,14 @@ public class TimeUtil {
                 }
                 return Math.abs(d) + "天后";
             }
-
             String out = getStringByFormat(strDate, outFormat);
             if (!TextUtils.isEmpty(out)) {
                 return out;
             }
         } catch (Exception e) {
         }
-
         return strDate;
     }
-
 
     /**
      * 取指定日期为星期几
@@ -725,7 +722,6 @@ public class TimeUtil {
      */
     public static String getfriendlyTime(Long ms) {
         if (ms == null) return "";
-//		Date time = toDate(sdate);
         Date time = new Date();
         time.setTime(ms);
 
@@ -751,7 +747,6 @@ public class TimeUtil {
             }
             return ftime;
         }
-
         long lt = time.getTime() / 86400000;
         long ct = cal.getTimeInMillis() / 86400000;
         int days = (int) (ct - lt);
@@ -781,7 +776,6 @@ public class TimeUtil {
      * @param dateStr
      * @return
      */
-    @SuppressLint("SimpleDateFormat")
     public static int getExpiredHour(String dateStr) {
         int ret = -1;
 
@@ -801,16 +795,15 @@ public class TimeUtil {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         return ret;
     }
 
     /**
      * 过了多少个小时
+     *
      * @param dateStr
      * @return
      */
-    @SuppressLint("SimpleDateFormat")
     public static int getExpiredHour2(String dateStr) {
         int ret = -1;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -818,22 +811,21 @@ public class TimeUtil {
         try {
             sendDate = sdf.parse(dateStr);
             Date dateNow = new Date(System.currentTimeMillis());
-            Log.e("JPush","date="+sendDate);
+            Log.e("JPush", "date=" + sendDate);
             long times = dateNow.getTime() - sendDate.getTime();
-            Log.e("JPush","date.getTime()="+sendDate.getTime());
+            Log.e("JPush", "date.getTime()=" + sendDate.getTime());
             if (times > 0) {
                 ret = ((int) (times / ONE_HOUR_MILLISECONDS));
-                int sdqf =(int)Math.floor(times /ONE_HOUR_MILLISECONDS);
+                int sdqf = (int) Math.floor(times / ONE_HOUR_MILLISECONDS);
             } else {
                 ret = -1;
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Log.e("JPush","ret="+ret);
+        Log.e("JPush", "ret=" + ret);
         return ret;
     }
-
 
     /**
      * 判断给定字符串时间是否为今日
@@ -948,6 +940,7 @@ public class TimeUtil {
         tmpDuration %= 1;
         return str;
     }
+
     /**
      * 友好的时间间隔2
      *
@@ -957,9 +950,9 @@ public class TimeUtil {
     public static String getFriendlyDuration2(long duration) {
         String str = "";
         long tmpDuration = duration;
-        str += (tmpDuration / 60>0?tmpDuration / 60+"'":"");
+        str += (tmpDuration / 60 > 0 ? tmpDuration / 60 + "'" : "");
         tmpDuration %= 60;
-        str += (tmpDuration / 1>=10?tmpDuration / 1+"''":"0"+tmpDuration / 1+"''");
+        str += (tmpDuration / 1 >= 10 ? tmpDuration / 1 + "''" : "0" + tmpDuration / 1 + "''");
         tmpDuration %= 1;
         return str;
     }
@@ -1015,12 +1008,13 @@ public class TimeUtil {
 
     /**
      * 返回聊天时间
+     *
      * @return
      */
-    public static  String getChatTimeForShow(long time){
-        if(TimeUtil.isToday(time)){
+    public static String getChatTimeForShow(long time) {
+        if (TimeUtil.isToday(time)) {
             return TimeUtil.getStringByFormat(time, TimeUtil.dateFormatHMofChinese);
-        }else{
+        } else {
             return TimeUtil.getStringByFormat(time, TimeUtil.dateFormatMDHMofChinese);
         }
     }
@@ -1028,7 +1022,7 @@ public class TimeUtil {
     /**
      * 获取指定时间的毫秒值
      */
-    public static long getDatelongMills(String fomat,String dateStr){
+    public static long getDatelongMills(String fomat, String dateStr) {
         SimpleDateFormat sdf = new SimpleDateFormat(fomat);
         Date date = null;
         try {
@@ -1042,6 +1036,7 @@ public class TimeUtil {
 
     /**
      * 两个日期比较
+     *
      * @param DATE1
      * @param DATE2
      * @return
@@ -1051,7 +1046,7 @@ public class TimeUtil {
         try {
             Date dt1 = df.parse(DATE1);
             Date dt2 = df.parse(DATE2);
-            if (dt1.getTime() - dt2.getTime()>0) {//date1>date2
+            if (dt1.getTime() - dt2.getTime() > 0) {//date1>date2
                 return 1;
             } else {
                 return -1;

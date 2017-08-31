@@ -17,14 +17,16 @@ import java.io.IOException;
 /**
  * 图像util
  */
-class ImageUtil {
+@SuppressWarnings("ALL")
+public class ImageUtil {
 
     private ImageUtil() {
-
+        super();
     }
 
     /**
      * 获取压缩后bitmap
+     *
      * @param context
      * @param imageUri
      * @param maxWidth
@@ -45,13 +47,14 @@ class ImageUtil {
         int actualHeight = options.outHeight;
         int actualWidth = options.outWidth;
 
-        float imgRatio = (float)actualWidth / actualHeight;
+        float imgRatio = (float) actualWidth / actualHeight;
         float maxRatio = maxWidth / maxHeight;
 
         //width and height values are set maintaining the aspect ratio of the image
         if (actualHeight > maxHeight || actualWidth > maxWidth) {
             if (imgRatio < maxRatio) {
-                imgRatio = maxHeight / actualHeight; actualWidth = (int) (imgRatio * actualWidth);
+                imgRatio = maxHeight / actualHeight;
+                actualWidth = (int) (imgRatio * actualWidth);
                 actualHeight = (int) maxHeight;
             } else if (imgRatio > maxRatio) {
                 imgRatio = maxWidth / actualWidth;
@@ -112,17 +115,17 @@ class ImageUtil {
                 matrix.postRotate(270);
             }
             scaledBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0,
-                                               scaledBitmap.getWidth(), scaledBitmap.getHeight(),
-                                               matrix, true);
+                    scaledBitmap.getWidth(), scaledBitmap.getHeight(),
+                    matrix, true);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return scaledBitmap;
     }
 
     /**
      * 压缩图片
+     *
      * @param context
      * @param imageUri
      * @param maxWidth
@@ -137,10 +140,8 @@ class ImageUtil {
         String filename = generateFilePath(context, parentPath, imageUri, compressFormat.name().toLowerCase());
         try {
             out = new FileOutputStream(filename);
-
-            //write the compressed bitmap at the destination specified by filename.
+            // write the compressed bitmap at the destination specified by filename.
             ImageUtil.getScaledBitmap(context, imageUri, maxWidth, maxHeight).compress(compressFormat, quality, out);
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -151,7 +152,6 @@ class ImageUtil {
             } catch (IOException ignored) {
             }
         }
-
         return new File(filename);
     }
 
@@ -180,7 +180,6 @@ class ImageUtil {
         while (totalPixels / (inSampleSize * inSampleSize) > totalReqPixelsCap) {
             inSampleSize++;
         }
-
         return inSampleSize;
     }
 }

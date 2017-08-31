@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.jaydenxiao.common.R;
 
-
 @SuppressWarnings("ALL")
 public class NormalTitleBar extends RelativeLayout {
 

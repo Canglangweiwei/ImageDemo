@@ -5,10 +5,10 @@ package com.jaydenxiao.common.baserx;
  * Created by xsf
  * on 2016.09.10:16
  */
-public class ServerException extends Exception{
+@SuppressWarnings("ALL")
+public class ServerException extends Exception {
 
-    public ServerException(String msg){
+    public ServerException(String msg) {
         super(msg);
     }
-
 }

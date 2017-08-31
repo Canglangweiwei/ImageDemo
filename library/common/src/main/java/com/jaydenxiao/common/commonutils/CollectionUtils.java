@@ -4,8 +4,8 @@ import java.util.Collection;
 
 /**
  * 集合操作工具类
- *
  */
+@SuppressWarnings("ALL")
 public class CollectionUtils {
 
     /**

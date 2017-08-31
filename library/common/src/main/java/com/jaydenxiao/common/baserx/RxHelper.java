@@ -14,13 +14,17 @@ import rx.schedulers.Schedulers;
  * Created by xsf
  * on 2016.09.9:59
  */
-/**************使用例子******************/
+
+/**************
+ * 使用例子
+ ******************/
 /*_apiService.login(mobile, verifyCode)
         .compose(RxSchedulersHelper.io_main())
         .compose(RxResultHelper.handleResult())
         .//省略*/
-
+@SuppressWarnings("ALL")
 public class RxHelper {
+
     /**
      * 对服务器返回数据进行预处理
      *
@@ -32,6 +36,7 @@ public class RxHelper {
             @Override
             public Observable<T> call(Observable<BaseRespose<T>> tObservable) {
                 return tObservable.flatMap(new Func1<BaseRespose<T>, Observable<T>>() {
+
                     @Override
                     public Observable<T> call(BaseRespose<T> result) {
                         LogUtils.logd("result from api : " + result);
@@ -41,10 +46,11 @@ public class RxHelper {
                             return Observable.error(new ServerException(result.msg));
                         }
                     }
-                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+                })
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread());
             }
         };
-
     }
 
     /**
@@ -56,6 +62,7 @@ public class RxHelper {
      */
     private static <T> Observable<T> createData(final T data) {
         return Observable.create(new Observable.OnSubscribe<T>() {
+
             @Override
             public void call(Subscriber<? super T> subscriber) {
                 try {
@@ -66,6 +73,5 @@ public class RxHelper {
                 }
             }
         });
-
     }
 }

@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 
 import com.jaydenxiao.common.baseapp.BaseApplication;
 
-
 /**
  * 屏幕相关的辅助类
  */

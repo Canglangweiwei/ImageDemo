@@ -138,15 +138,15 @@ public class DESBase64Util {
         return "";
     }
 
-    /*public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException   {
-        String info = "收费水电费{phonsaffffffe:\"13729817965\"}";
-        //生成密文
-        String encodeInfo = encodeInfo(info);       
-        System.out.println(encodeInfo);
-        //还原成原文
-        String decodeInfo = decodeInfo(encodeInfo);
-        System.out.println(decodeInfo);
-        
-        System.out.println(MD5.getMD5("checkPhonecz20150803"));
-    }*/
+//    public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+//        String info = "收费水电费{\"phonsaffffffe\":\"13729817965\"}";
+//        // 生成密文
+//        String encodeInfo = encodeInfo(info);
+//        System.out.println(encodeInfo);
+//        // 还原成原文
+//        String decodeInfo = decodeInfo(encodeInfo);
+//        System.out.println(decodeInfo);
+//
+//        System.out.println(Md5Security.getMD5("checkPhonecz20150803"));
+//    }
 }
