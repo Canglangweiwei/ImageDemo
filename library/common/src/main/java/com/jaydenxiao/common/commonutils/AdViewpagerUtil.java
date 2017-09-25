@@ -195,7 +195,6 @@ public class AdViewpagerUtil {
 
                         @Override
                         public void onClick(View v) {
-                            // TODO Auto-generated method stub
                             if (onAdItemClickListener != null) {
                                 onAdItemClickListener.onItemClick(mImageViews[index + 1], index, url);
                             }

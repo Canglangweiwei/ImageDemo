@@ -23,17 +23,17 @@ public class JsonUtils {
     }
 
     /**
-     * @param src :将要被转化的对象
+     * @param o :将要被转化的对象
      * @return :转化后的JSON串
      * @MethodName : toJson
      * @Description : 将对象转为JSON串，此方法能够满足大部分需求
      */
-    public static String toJson(Object src) {
-        if (null == src) {
+    public static String toJson(Object o) {
+        if (null == o) {
             return gson.toJson(JsonNull.INSTANCE);
         }
         try {
-            return gson.toJson(src);
+            return gson.toJson(o);
         } catch (JsonSyntaxException e) {
             e.printStackTrace();
         }
@@ -85,22 +85,6 @@ public class JsonUtils {
         try {
             JSONObject object = new JSONObject(json);
             return object.getString(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * 获取json中的list值
-     *
-     * @param json
-     * @return
-     */
-    public static String getListValue(String json) {
-        try {
-            JSONObject object = new JSONObject(json);
-            return object.getString("list");
         } catch (Exception e) {
             e.printStackTrace();
         }
