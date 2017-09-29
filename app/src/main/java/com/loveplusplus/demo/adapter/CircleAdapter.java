@@ -16,8 +16,6 @@ import com.loveplusplus.demo.viewholder.ZoneViewHolder;
 @SuppressWarnings("ALL")
 public class CircleAdapter extends BaseReclyerViewAdapter<MessageBean> {
 
-    private Context mContext;
-
     public CircleAdapter(Context context) {
         super(context);
         this.mContext = context;
