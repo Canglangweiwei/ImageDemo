@@ -41,7 +41,7 @@ public class CirclePublishActivity extends BaseActivity {
     NoScrollGridView gridview;
 
     private NinePicturesAdapter ninePicturesAdapter;
-    private int REQUEST_CODE = 120;
+    private final int REQUEST_CODE = 120;
 
     /**
      * 启动入口
@@ -139,10 +139,16 @@ public class CirclePublishActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            List<String> pathList = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
-            if (ninePicturesAdapter != null) {
-                ninePicturesAdapter.addAll(pathList);
+        if (resultCode == RESULT_OK && data != null) {
+            switch (requestCode) {
+                case REQUEST_CODE:
+                    List<String> pathList = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
+                    if (ninePicturesAdapter != null) {
+                        ninePicturesAdapter.addAll(pathList);
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }

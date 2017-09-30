@@ -28,7 +28,7 @@ public class NinePicturesAdapter extends BaseAblistViewAdapter<String> {
     private int pictureNum = 0;
     private boolean isDelete = false;//当前是否显示删除按钮
     private OnClickAddListener onClickAddListener;
-    private boolean isAdd = true;//当前是否显示添加按钮
+    private boolean isAdd = true;// 当前是否显示添加按钮
 
     public NinePicturesAdapter(Context context, int pictureNum, OnClickAddListener onClickAddListener) {
         super(context);

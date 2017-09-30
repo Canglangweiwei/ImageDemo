@@ -28,6 +28,6 @@
         android:layout_height="25dp"
         android:layout_alignRight="@+id/rr_gad"
         android:layout_alignTop="@+id/rr_gad"
-        android:background="@drawable/icon_del_s"
+        android:background="@drawable/ic_delete"
         android:contentDescription="@string/app_name" />
 </RelativeLayout>
