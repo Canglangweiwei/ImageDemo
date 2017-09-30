@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -80,6 +81,15 @@ public class BigImagePagerActivity extends BaseActivity {
 
         int startPos = getIntent().getIntExtra(INTENT_POSITION, 0);
         ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_IMGURLS);
+
+        /**
+         * 数据处理
+         */
+        for (int i = 0; i < imgUrls.size(); i++) {
+            if (TextUtils.isEmpty(imgUrls.get(i))) {
+                imgUrls.remove(i);
+            }
+        }
 
         ImageAdapter mAdapter = new ImageAdapter(this);
         mAdapter.setDatas(imgUrls);
